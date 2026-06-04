@@ -24,6 +24,7 @@
   --c-swami:  #c47a1a;    /* SwamiGPT — warm brown (sun) */
   --c-dharma: #5a8a5e;    /* DharmaGPT — sage (moon) */
   --c-tapas:  #1e88b4;    /* TapasAI — journal blue (compass) */
+  --c-illuminate: #7c5cbf; /* Illuminate / AI Sparks — purple */
 
   /* Type */
   --font-serif: 'Cormorant Garamond', Georgia, serif;
@@ -32,6 +33,11 @@
 
   /* Inline checkmark used as a tintable CSS mask (free-includes list) */
   --check-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+
+  /* Sacred-geometry hero motif (flower of life, gold) — faint texture behind heroes */
+  --mandala: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20600%20600'%20fill='none'%20stroke='%23b8860b'%20stroke-width='1.5'%3E%3Ccircle%20cx='300'%20cy='300'%20r='200'/%3E%3Ccircle%20cx='300'%20cy='300'%20r='100'/%3E%3Ccircle%20cx='400'%20cy='300'%20r='100'/%3E%3Ccircle%20cx='350'%20cy='386.6'%20r='100'/%3E%3Ccircle%20cx='250'%20cy='386.6'%20r='100'/%3E%3Ccircle%20cx='200'%20cy='300'%20r='100'/%3E%3Ccircle%20cx='250'%20cy='213.4'%20r='100'/%3E%3Ccircle%20cx='350'%20cy='213.4'%20r='100'/%3E%3C/svg%3E");
+  /* Ornamental divider (diamond flanked by hairlines) */
+  --ornament: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20120%2012'%3E%3Cpath%20d='M60%201L65%206L60%2011L55%206Z'%20fill='%23b8860b'/%3E%3Cline%20x1='8'%20y1='6'%20x2='48'%20y2='6'%20stroke='%23b8860b'%20stroke-width='1'%20opacity='0.5'/%3E%3Cline%20x1='72'%20y1='6'%20x2='112'%20y2='6'%20stroke='%23b8860b'%20stroke-width='1'%20opacity='0.5'/%3E%3C/svg%3E");
 
   /* Shape & light */
   --radius-sm: 8px;
@@ -421,4 +427,119 @@ a:hover { color: var(--color-accent); }
   .companion-card { grid-template-columns: 1fr; gap: 0.9rem; }
   .companion-card__icon { grid-row: auto; }
   .companion-card__body { grid-column: 1; }
+}
+
+/* ════════════════════════════════════════════════════════════
+   VISUAL ELEVATION — Liquid Glass, hero motif, ornament, motion.
+   Appended so these rules override the flatter base styles above.
+   All CSS-only (no JS), so the strict script-src 'none' CSP holds.
+   ════════════════════════════════════════════════════════════ */
+
+/* ── Hero: sacred-geometry motif + depth + bolder display type ── */
+.hero { position: relative; overflow: hidden; }
+.hero::before {
+  content: ""; position: absolute; left: 50%; top: -190px; transform: translateX(-50%);
+  width: 700px; height: 700px; max-width: 150vw; aspect-ratio: 1; pointer-events: none; z-index: 0;
+  background: var(--mandala) center / contain no-repeat; opacity: 0.07;
+}
+.hero__inner { position: relative; z-index: 1; }
+.hero__title { font-size: clamp(2.85rem, 7vw, 4.75rem); }
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .hero__title em {
+    background: linear-gradient(165deg, var(--color-accent-soft), var(--color-accent-deep));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
+}
+
+/* ── Liquid Glass surfaces (cards, panels) ──────────────────── */
+.door, .feature, .tier, .pathway, .companion-card {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.42)),
+    radial-gradient(135% 150% at 50% -12%, #ffffff 0%, #fdfbf7 55%, #f5eee2 100%);
+  border: 1px solid rgba(184,134,11,0.16);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.9),
+    0 1px 2px rgba(44,42,38,0.04),
+    0 16px 36px -18px rgba(120,90,20,0.32);
+}
+.door:hover, .feature:hover, .tier:hover, .pathway:hover, .companion-card:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.96),
+    0 2px 5px rgba(44,42,38,0.05),
+    0 26px 52px -20px rgba(120,90,20,0.45);
+}
+/* Re-assert accent edges the shared border reset above would wipe */
+.door { border-top: 3px solid var(--color-accent-soft); }
+.door--web { border-top-color: var(--c-reflect); }
+.tier--featured { border-color: rgba(184,134,11,0.4); }
+.companion-card { border-left: 4px solid var(--c); }
+
+/* Eyebrow pill + badge: a touch of glass */
+.eyebrow--pill, .badge {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0)),
+    var(--color-accent-bg);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 1px 2px rgba(120,90,20,0.10);
+}
+
+/* ── Ornamental divider ─────────────────────────────────────── */
+.rule {
+  width: 124px; height: 12px; border: 0; margin: 1.5rem auto;
+  background: var(--ornament) center / contain no-repeat;
+}
+
+/* ── Primary button: light sheen sweep on hover ─────────────── */
+.btn--primary { position: relative; overflow: hidden; isolation: isolate; }
+.btn--primary::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; z-index: -1;
+  background: linear-gradient(120deg, transparent 32%, rgba(255,255,255,0.5) 50%, transparent 68%);
+  transform: translateX(-130%); transition: transform 0.6s ease;
+}
+.btn--primary:hover::after { transform: translateX(130%); }
+
+/* ── Mantra: lift the key words ─────────────────────────────── */
+.mantra { letter-spacing: -0.005em; }
+
+/* ── Motion: hero entrance + scroll-reveal (reduced-motion safe) ── */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__eyebrow { animation: hyp-rise 0.7s 0.05s both ease-out; }
+  .hero__title   { animation: hyp-rise 0.7s 0.16s both ease-out; }
+  .hero__sub     { animation: hyp-rise 0.7s 0.30s both ease-out; }
+  .hero .stack-cta { animation: hyp-rise 0.7s 0.42s both ease-out; }
+  @keyframes hyp-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+  /* Scroll-driven reveal — only where supported, so unsupported
+     browsers never get stuck at opacity:0. */
+  @supports (animation-timeline: view()) {
+    .door, .feature, .tier, .pathway, .companion-card,
+    .section__head, .callout, .mantra, .free-list {
+      animation: hyp-reveal both linear;
+      animation-timeline: view();
+      animation-range: entry 0% entry 65%;
+    }
+    @keyframes hyp-reveal { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+  }
+}
+
+/* ── Pillar sections (features page) ────────────────────────── */
+.pillar { --pc: var(--color-accent); }
+.pillar--study { --pc: var(--color-accent); }
+.pillar--reflect { --pc: var(--c-reflect); }
+.pillar--illuminate { --pc: var(--c-illuminate); }
+.pillar .section__eyebrow { color: var(--pc); }
+.pillar .section__title em { color: var(--pc); }
+.pillar .feature__icon {
+  background: var(--color-accent-bg);
+  background: color-mix(in srgb, var(--pc) 12%, var(--color-white));
+  color: var(--pc);
+}
+.pillar .feature { border-top: 3px solid color-mix(in srgb, var(--pc) 55%, var(--color-border)); }
+.pillar-note {
+  display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 0.85rem;
+  font-size: 0.85rem; font-weight: 500; color: var(--pc);
+  background: color-mix(in srgb, var(--pc) 9%, var(--color-white));
+  border: 1px solid color-mix(in srgb, var(--pc) 24%, var(--color-border));
+  padding: 0.4rem 0.9rem; border-radius: 999px;
 }

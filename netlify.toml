@@ -43,6 +43,17 @@
   to = "/companions.html"
   status = 200
 
+[[redirects]]
+  from = "/features.html"
+  to = "/features"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/features"
+  to = "/features.html"
+  status = 200
+
 # ── Security headers ─────────────────────────────────────────
 # This site runs ZERO JavaScript and makes zero cross-origin calls,
 # so the CSP can be strict: script-src 'none', connect-src 'self'.
