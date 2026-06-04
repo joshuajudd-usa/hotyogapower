@@ -13,6 +13,7 @@ separate from the `hyp.yoga` web app and backend.
 | `/` | `index.html` | Front door — brand hero + two doors (the app · the web) |
 | `/app` | `app.html` | The iOS app — overview + "coming soon to the App Store" + tier ladder |
 | `/web` | `web.html` | Gateway — Sign up → `hyp.yoga/signup`, Log in → `hyp.yoga/login` |
+| `/companions` | `companions.html` | AI Companions — SwamiGPT · DharmaGPT · TapasAI (Phase 2) |
 
 Design language is inherited from hyp.yoga (cream + warm gold, Cormorant Garamond + Inter,
 self-hosted for GDPR). Shared styles live in `style.css`; fonts in `fonts/` (Cormorant + Inter
