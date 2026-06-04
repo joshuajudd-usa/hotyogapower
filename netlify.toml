@@ -1,0 +1,58 @@
+# hotyogapower.com — static marketing front door for HYP Yoga.
+# Its own Netlify site, fully separate from the hyp.yoga site.
+# No build step, no functions — pure static. Apex (hotyogapower.com) is the
+# canonical domain; set it as the Primary domain in the Netlify dashboard so
+# www.hotyogapower.com auto-301s to the apex.
+
+[build]
+  publish = "."
+
+# ── Clean URLs ───────────────────────────────────────────────
+# Canonicalize the .html paths to their clean equivalents…
+[[redirects]]
+  from = "/app.html"
+  to = "/app"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/web.html"
+  to = "/web"
+  status = 301
+  force = true
+
+# …then serve the clean URLs from the underlying files (rewrite, URL unchanged).
+[[redirects]]
+  from = "/app"
+  to = "/app.html"
+  status = 200
+
+[[redirects]]
+  from = "/web"
+  to = "/web.html"
+  status = 200
+
+# ── Security headers ─────────────────────────────────────────
+# This site runs ZERO JavaScript and makes zero cross-origin calls,
+# so the CSP can be strict: script-src 'none', connect-src 'self'.
+# 'unsafe-inline' is kept only for inline style="" attributes.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Content-Security-Policy = "upgrade-insecure-requests; default-src 'self'; script-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none';"
+
+# Long-cache the static assets (filenames are stable; bump ?v= on style.css to refresh)
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
