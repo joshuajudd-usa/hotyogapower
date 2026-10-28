@@ -11,10 +11,10 @@ separate from the `hyp.yoga` web app and backend.
 | Path | File | Purpose |
 |------|------|---------|
 | `/` | `index.html` | Front door — brand hero + two doors (the app · the web) |
-| `/app` | `app.html` | The iOS app — overview + "coming soon to the App Store" + tier ladder |
+| `/app` | `app.html` | The iPhone app — overview + availability note (TestFlight beta now; release gate) + free-account summary |
 | `/web` | `web.html` | Gateway — Sign up → `hyp.yoga/signup`, Log in → `hyp.yoga/login` |
-| `/companions` | `companions.html` | AI Companions — SwamiGPT · DharmaGPT · TapasAI (Phase 2) |
-| `/features` | `features.html` | Full feature catalog by Study/Reflect/Illuminate + tier ladder (Phase 2) |
+| `/companions` | `companions.html` | AI Companions — Swami · Dharma · TapasAI; links to the canonical guide pages on hyp.yoga |
+| `/features` | `features.html` | Feature catalog by Study/Reflect/Illuminate + free-account summary |
 
 Design language is inherited from hyp.yoga (cream + warm gold, Cormorant Garamond + Inter,
 self-hosted for GDPR). Shared styles live in `style.css`; fonts in `fonts/` (Cormorant + Inter
@@ -32,7 +32,9 @@ preview server or a Netlify deploy.)
 ## Deploy (one-time setup)
 
 This repo is a normal clone — **no** `index.lock` / `/tmp/hyp-deploy` workaround (that's
-hyp-yoga-only). Just push; Netlify auto-deploys.
+hyp-yoga-only). Confirm this repository's Netlify site binding and deployment settings before
+publishing; the instructions below describe setup, not verified live state. Publish after
+`hyp.yoga/ai/swami` and `hyp.yoga/ai/dharma` are live.
 
 1. **GitHub repo**
    ```bash
@@ -52,14 +54,15 @@ hyp-yoga-only). Just push; Netlify auto-deploys.
 4. **Verify** — visit `https://hotyogapower.com`; confirm the URL sticks (no redirect to hyp.yoga),
    both doors work, and `/web` lands on hyp.yoga signup/login.
 
-Thereafter: edit → `git commit` → `git push` → Netlify rebuilds.
+If the site is bound to this repository, pushing its configured production branch triggers a
+Netlify rebuild.
 
 ## Out of scope (would touch hyp.yoga or iOS — reauthorize separately)
 
 - Real App Store link + Apple Smart App Banner (when the app is live).
 - Adding this domain to the iOS Associated Domains for Universal Links.
 - A launch waitlist / any data capture (would require a privacy disclosure on this domain).
-- Phase 2: re-authored app info / tutorial / walkthrough / sales pages, built from hyp.yoga's
-  informational pages as source material.
+- Future app tutorials or walkthroughs, built from hyp.yoga's informational pages as source
+  material.
 
 Built with reverence. No ads. Ever.

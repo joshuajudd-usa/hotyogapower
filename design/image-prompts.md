@@ -21,7 +21,7 @@ Lens tints, sacred geometry).
 
 - **Feeling:** opening a beautifully made contemplative book — never a tech/SaaS look. Reverent, calm, spacious, gallery-quality.
 - **Palette:** cream paper `#faf8f5`, deeper cream `#f0ece6`, warm ink `#2c2a26`, **dark gold `#b8860b`**, soft gold `#d4a843`, gold tint `#f5edd8`.
-- **Spark-family accents (use sparingly, as jewel tints):** Sparkmarks gold `#d97706`, Reflect/TapasAI/journal blue `#1e88b4`, Illuminate/AI-Sparks violet `#7c5cbf`, DharmaGPT sage `#5a8a5e`, SwamiGPT warm brown `#c47a1a`, Voice coral `#e06666`, Listen teal `#009688`.
+- **Spark-family accents (use sparingly, as jewel tints):** Sparkmarks gold `#d97706`, Reflect/TapasAI/journal blue `#1e88b4`, Illuminate/AI-Sparks violet `#7c5cbf`, Dharma sage `#5a8a5e`, Swami warm brown `#c47a1a`, Voice coral `#e06666`, Listen teal `#009688`.
 - **Temporal Lens tints:** Smṛti = amber (past), Sthiti = blue (present), Saṅkalpa = sage (future).
 - **Light:** soft, warm, diffused — golden-hour, like a single lamp at dawn.
 - **Motifs:** yantra, mandala, **flower of life**, lotus, palm-leaf manuscript, fine Devanagari-inspired linework, compass.
@@ -83,7 +83,7 @@ jewel hue: warm gold #b8860b, journal blue #1e88b4, sage green #5a8a5e, warm bro
 jewel-like, reverent. Cream background. No text, no harsh reflections, no plastic look.
 ```
 
-## 4 — SwamiGPT emblem (the sun / ancient wisdom keeper)  ·  square
+## 4 — Swami emblem (the sun / ancient wisdom keeper)  ·  square
 *Companions page. Symbolic emblem — no face, to avoid likeness/deity issues.*
 
 ```
@@ -93,7 +93,7 @@ line art, the sun a softly glowing translucent glass disc. Symmetrical, centered
 generous margins. Cream #faf8f5 background. Emblem only — no face, no text.
 ```
 
-## 5 — DharmaGPT emblem (the moon / modern teacher)  ·  square
+## 5 — Dharma emblem (the moon / modern teacher)  ·  square
 *Pair to #4 — same line weight and treatment.*
 
 ```

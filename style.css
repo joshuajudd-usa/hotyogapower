@@ -21,8 +21,8 @@
 
   /* Feature accents (used sparingly, per hyp.yoga's color system) */
   --c-reflect: #1e88b4;   /* the web / journal / TapasAI world */
-  --c-swami:  #c47a1a;    /* SwamiGPT — warm brown (sun) */
-  --c-dharma: #5a8a5e;    /* DharmaGPT — sage (moon) */
+  --c-swami:  #c47a1a;    /* Swami — warm brown (sun) */
+  --c-dharma: #5a8a5e;    /* Dharma — sage (moon) */
   --c-tapas:  #1e88b4;    /* TapasAI — journal blue (compass) */
   --c-illuminate: #7c5cbf; /* Illuminate / AI Sparks — purple */
 
@@ -423,6 +423,8 @@ a:hover { color: var(--color-accent); }
 }
 .companion-tier { font-size: 0.86rem; color: var(--color-text-light); }
 .companion-tier strong { color: var(--c); font-weight: 600; }
+.companion-card__link { margin: 0.65rem 0 0; font-size: 0.9rem; font-weight: 600; }
+.companion-card__link a { color: var(--c); text-decoration: underline; text-underline-offset: 0.2em; }
 @media (max-width: 560px) {
   .companion-card { grid-template-columns: 1fr; gap: 0.9rem; }
   .companion-card__icon { grid-row: auto; }
